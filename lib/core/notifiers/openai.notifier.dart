@@ -21,6 +21,8 @@ class OpenAINotifier with ChangeNotifier {
 
     _data = received;
     check = true;
+
+    print(userData);
     notifyListeners();
   }
 }

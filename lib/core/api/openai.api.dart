@@ -22,7 +22,7 @@ class OpenAI {
       body: jsonEncode({
         "prompt": prompt,
         "max_tokens": 200,
-        "temperature": 0.5,
+        "temperature": 1,
       }),
     );
 
