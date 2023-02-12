@@ -5,7 +5,7 @@ import 'app/provider/app.provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const Lava());
+  runApp(const Core());
 }
 
 class Core extends StatelessWidget {

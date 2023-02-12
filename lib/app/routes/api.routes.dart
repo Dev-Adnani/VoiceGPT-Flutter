@@ -1,5 +1,3 @@
 class ApiRoutes {
-  static const String baseUrl = "/splash";
-  static const String extentedUrl = "/home";
-
+  static const apiUrl = "https://api.openai.com/v1/engines/davinci/completions";
 }
