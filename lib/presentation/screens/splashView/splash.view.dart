@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:voicegpt/app/constants/app.animation.dart';
 import 'package:voicegpt/app/routes/app.routes.dart';
 
 class SplashView extends StatefulWidget {
@@ -23,38 +25,30 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black54,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-        
-          const SizedBox(
-            height: 40.0,
-          ),
-          RichText(
-            text: const TextSpan(
-              text: 'Did ',
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
-              children: [
-                TextSpan(
-                  text: 'You Wear ',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                TextSpan(
-                  text: 'It ?',
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w800,
-                      color: Colors.red),
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Lottie.asset(
+              AppAnimation.splashAnim,
+              width: 400,
+              height: 400,
+              fit: BoxFit.fill,
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 40.0,
+            ),
+            const Text(
+              "VoiceGPT",
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.w800,
+                color: Colors.lightBlue,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
