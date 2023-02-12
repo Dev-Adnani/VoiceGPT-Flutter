@@ -11,26 +11,32 @@ class OpenAI {
     'Authorization': "test"
   };
   static const apiKey = AppKeys.apiKey;
+  var url = Uri.https("api.openai.com", "/v1/completions");
 
   Future generateText(String prompt) async {
     final response = await http.post(
-      Uri.parse(ApiRoutes.apiUrl),
+      url,
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer $apiKey"
       },
       body: jsonEncode({
+        "model": "text-davinci-003",
         "prompt": prompt,
-        "max_tokens": 200,
-        "temperature": 1,
+        'temperature': 0,
+        'max_tokens': 2000,
+        'top_p': 1,
+        'frequency_penalty': 0.0,
+        'presence_penalty': 0.0,
       }),
     );
 
+    final responseJson = jsonDecode(response.body);
+
     if (response.statusCode == 200) {
-      final responseJson = jsonDecode(response.body);
       return responseJson;
     } else {
-      throw Exception("Failed to generate text");
+      return;
     }
   }
 }

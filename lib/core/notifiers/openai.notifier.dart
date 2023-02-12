@@ -22,7 +22,8 @@ class OpenAINotifier with ChangeNotifier {
     _data = received;
     check = true;
 
-    print(userData);
     notifyListeners();
+    // ignore: use_build_context_synchronously
+    Navigator.pop(context);
   }
 }
